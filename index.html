@@ -12,63 +12,250 @@
 
 <body>
     <script>
-        function on_fun(){
-            console.log("change");
+        var temp1 = false;
+        var temp2 = false;
+
+        function and_fn() {
             const box = document.getElementById('and_div');
-            box.style.backgroundColor = "#FF00FF";
+            if (document.getElementById('ab1').checked) { temp1 = true; console.log("bt-1 and true"); }
+            else { temp1 = false; console.log("bt-1 and false"); }
+            if (document.getElementById('ab2').checked) { temp2 = true; console.log("bt-2 and true"); }
+            else { temp2 = false; console.log("bt-2 and false"); }
+            if (temp1 && temp2) {
+                box.style.backgroundColor = 'rgb(98, 246, 157)';
+                box.style.boxShadow = '0 8px 16px 0 rgba(159, 241, 140, 0.5)';
+            }
+            else {
+                box.style.backgroundColor = 'rgb(246, 98, 98)';
+                box.style.boxShadow = '0 8px 16px 0 rgba(241, 140, 140, 0.515)';
+            }
+        }
+        function or_fn() {
+            const box = document.getElementById('or_div');
+            if (document.getElementById('ob1').checked) { temp1 = true; console.log("bt-1 or true"); }
+            else { temp1 = false; console.log("bt-1 or false"); }
+            if (document.getElementById('ob2').checked) { temp2 = true; console.log("bt-2 or true"); }
+            else { temp2 = false; console.log("bt-2 or false"); }
+            if (temp1 || temp2) {
+                box.style.backgroundColor = 'rgb(98, 246, 157)';
+                box.style.boxShadow = '0 8px 16px 0 rgba(159, 241, 140, 0.5)';
+            }
+            else {
+                box.style.backgroundColor = 'rgb(246, 98, 98)';
+                box.style.boxShadow = '0 8px 16px 0 rgba(241, 140, 140, 0.515)';
+            }
+        }
+        function nand_fn() {
+            const box = document.getElementById('nand_div');
+            if (document.getElementById('nab1').checked) { temp1 = true; console.log("bt-1 nand true"); }
+            else { temp1 = false; console.log("bt-1 nand false"); }
+            if (document.getElementById('nab2').checked) { temp2 = true; console.log("bt-2 nand true"); }
+            else { temp2 = false; console.log("bt-2 nand false"); }
+            if (temp1 && temp2) {
+                box.style.backgroundColor = 'rgb(246, 98, 98)';
+                box.style.boxShadow = '0 8px 16px 0 rgba(241, 140, 140, 0.515)';
+            }
+            else {
+                box.style.backgroundColor = 'rgb(98, 246, 157)';
+                box.style.boxShadow = '0 8px 16px 0 rgba(159, 241, 140, 0.5)';
+            }
+        }
+        function nor_fn() {
+            const box = document.getElementById('nor_div');
+            if (document.getElementById('nob1').checked) { temp1 = true; console.log("bt-1 nor true"); }
+            else { temp1 = false; console.log("bt-1 nor false"); }
+            if (document.getElementById('nob2').checked) { temp2 = true; console.log("bt-2 nor true"); }
+            else { temp2 = false; console.log("bt-2 nor false"); }
+            if (temp1 || temp2) {
+                box.style.backgroundColor = 'rgb(246, 98, 98)';
+                box.style.boxShadow = '0 8px 16px 0 rgba(241, 140, 140, 0.515)';
+            }
+            else {
+                box.style.backgroundColor = 'rgb(98, 246, 157)';
+                box.style.boxShadow = '0 8px 16px 0 rgba(159, 241, 140, 0.5)';
+            }
+        }
+        function not_fn() {
+            const box = document.getElementById('not_div');
+            if (document.getElementById('otb1').checked) { temp1 = true; console.log("bt-1 not true"); }
+            else { temp1 = false; console.log("bt-1 not false"); }
+            if (temp1) {
+                box.style.backgroundColor = 'rgb(246, 98, 98)';
+                box.style.boxShadow = '0 8px 16px 0 rgba(241, 140, 140, 0.515)';
+            }
+            else {
+                box.style.backgroundColor = 'rgb(98, 246, 157)';
+                box.style.boxShadow = '0 8px 16px 0 rgba(159, 241, 140, 0.5)';
+            }
         }
     </script>
     <style>
-        .colour_all{
-            height: 43px;
-            width: 60px;
-            
-        }
-        #and_div {
-            background-color: aquamarine;
+        :root {
+            --blue: #1e90ff;
+            --white: #ffffff;
+            --red: rgb(246, 98, 98);
+            --green: rgb(98, 246, 157);
         }
 
+        .colour_div {
+            height: 52px;
+            width: 80px;
+            border-radius: 5px;
+            margin-left: 3%;
+            box-shadow: 0 8px 16px 0 rgba(101, 101, 101, 0.3);
+        }
+
+        #and_div {
+            background-color: var(--red);
+        }
+        #or_div {
+            background-color: var(--red);
+        }
+        #nand_div {
+            background-color: var(--green);
+        }
+        #nor_div {
+            background-color: var(--green);
+        }
+        #not_div {
+            background-color: var(--green);
+        }
+
+
         .card {
-            height: 115px;
+            height: 150px;
             transition: 0.3s;
             background-color: #ffffff;
             /* #F7F5F2 */
+            box-shadow: 0 8px 16px 0 rgba(101, 101, 101, 0.2);
             width: 18%;
-            margin: 20px;
+            margin-right: 80px;
+            margin-left: 80px;
             text-align: center;
-            border: 1px solid rgba(0, 0, 0, 0.228);
+            border: 1px solid rgba(0, 0, 0, 0.124);
             border-radius: 7px;
             display: inline-block;
         }
 
-        .and {
-            background-color: burlywood;
-            margin: 20px;
-            justify-content: flex-start;
+        .mb {
             display: flex;
-            text-align: center;
+            margin-top: 10%;
+            justify-content: center;
         }
-        .hr{
+        .alc{
             display: flex;
+            justify-content: center;
+            margin-top: 3%;
+        }
+
+        .tex{
+            margin-top: 9px;
         }
     </style>
 
-    <div class="card">
-        <div class="container">
-            AND
-            <div class="hr">
-                <div>
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onblur="on_fun()">
-                    </div>
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onchange="and_btn2">
-                    </div>
+    <div class="alc">
+        <div class="card">
+
+            <div class="can">
+                <div class="tex">
+                    AND
                 </div>
-                <div id="and_div" class="colour_all"></div>
+                <div class="mb">
+                    <div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="ab1" onclick="and_fn()">
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="ab2" onclick="and_fn()">
+                        </div>
+                    </div>
+                    <div id="and_div" class="colour_div"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="can">
+                <div class="tex">
+                    OR
+                </div>
+                <div class="mb">
+                    <div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="ob1" onclick="or_fn()">
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="ob2" onclick="or_fn()">
+                        </div>
+                    </div>
+                    <div id="or_div" class="colour_div"></div>
+                </div>
             </div>
         </div>
     </div>
+
+    <div class="alc">
+        <div class="card">
+
+            <div class="can">
+                <div class="tex">
+                    NAND
+                </div>
+                <div class="mb">
+                    <div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="nab1" onclick="nand_fn()">
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="nab2" onclick="nand_fn()">
+                        </div>
+                    </div>
+                    <div id="nand_div" class="colour_div"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="can">
+                <div class="tex">
+                    NOR
+                </div>
+                <div class="mb">
+                    <div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="nob1" onclick="nor_fn()">
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="nob2" onclick="nor_fn()">
+                        </div>
+                    </div>
+                    <div id="nor_div" class="colour_div"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <DIV class="alc">
+        <div class="card">
+
+            <div class="can">
+                <div class="tex">
+                    NOT
+                </div>
+                <div class="mb">
+                    <div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="otb1" onclick="not_fn()">
+                        </div>
+                    </div>
+                    <div id="not_div" class="colour_div"></div>
+                </div>
+            </div>
+        </div>
+    </DIV>
 
 </body>
 
